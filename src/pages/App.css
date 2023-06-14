@@ -1,0 +1,17 @@
+.done{
+    text-decoration: line-through;
+}
+.moves:hover{
+    scale: 1.10;
+    transition: 1s;
+}
+nav{
+    top: 0px;
+    z-index: 1;
+}
+.pressed{
+    color: red;
+}
+i{
+    cursor: pointer
+}
