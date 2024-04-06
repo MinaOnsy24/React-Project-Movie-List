@@ -13,7 +13,7 @@ import { add } from "../Store/slices/favMovie";
 
 
 export default function Moves() {
-    const [Moves, setMoves] = useState([])
+    const [movies, setMovies] = useState([])
     const { lang, setLange } = useContext(LanguageContext)
 
     //to get data
@@ -24,16 +24,16 @@ export default function Moves() {
                 language: lang
             }
         })
-            .then((res) => setMoves(res.data.results))
+            .then((res) => setMovies(res.data.results))
             .catch((error) => console.log(error))
     }, [lang])
 
     //to read the single move in anther page
     const navigate = useNavigate();
-    const singleMove = ((move) => {
-        navigate(`/MovesDetail/${move.id}`, {
+    const singleMovie = ((movie) => {
+        navigate(`/MovesDetail/${movie.id}`, {
             state: {
-                move
+                movie
             }
         })
     })
@@ -44,12 +44,12 @@ export default function Moves() {
     const favMovie = useSelector((state) => state.favMovie)
 
 
-    const addToFavarites = ((move) => {
+    const addToFavarites = ((movie) => {
 
-        const isFav = favMovie.find((famov) => famov.id === move.id)
+        const isFav = favMovie.find((famov) => famov.id === movie.id)
 
         if (!isFav) {
-            dispatch(add({ move }))
+            dispatch(add({ movie }))
         }
     })
 
@@ -57,21 +57,21 @@ export default function Moves() {
     return (
         <>
             <div className="row mx-auto container pt-3">
-                {Moves.map((move) => {
+                {movies.map((movie) => {
                     return (
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 " key={move.id}>
-                            <div className="card bg-dark text-light moves" >
-                                <img src={`https://image.tmdb.org/t/p/w500${move.poster_path}`}
+                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 " key={movie.id}>
+                            <div className="card bg-dark text-light" >
+                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                     className="card-img-top" alt="..."
-                                    onClick={() => singleMove(move)} />
+                                    onClick={() => singleMovie(movie)} />
                                 <div className="card-body">
                                     <i className='fa-regular fa-heart mb-2 '
-                                        onClick={() => addToFavarites(move)}> </i>
-                                    <h5 className="card-title">{move.title}</h5>
+                                        onClick={() => addToFavarites(movie)}> </i>
+                                    <h5 className="card-title">{movie.title}</h5>
                                     <div >
                                         <button style={{ bottom: "10px" }}
                                             className="btn btn-primary w-75"
-                                            onClick={() => singleMove(move)}>Know More</button>
+                                            onClick={() => singleMovie(movie)}>Know More</button>
                                     </div>
                                 </div>
                             </div>
