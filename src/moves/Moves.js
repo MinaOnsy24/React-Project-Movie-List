@@ -24,9 +24,9 @@ export default function Moves() {
                 language: lang
             }
         })
-            .then((res) => setMoves(res.data.results))//to set data in const 
-            .catch((error) => console.log(error))//cheking error 
-    }, [])//why this []
+            .then((res) => setMoves(res.data.results))
+            .catch((error) => console.log(error))
+    }, [lang])
 
     //to read the single move in anther page
     const navigate = useNavigate();
@@ -42,12 +42,12 @@ export default function Moves() {
     const dispatch = useDispatch()
 
     const favMovie = useSelector((state) => state.favMovie)
-    // console.log(favMovie)
+
 
     const addToFavarites = ((move) => {
 
         const isFav = favMovie.find((famov) => famov.id === move.id)
-        // console.log(isFav)
+
         if (!isFav) {
             dispatch(add({ move }))
         }
@@ -56,7 +56,6 @@ export default function Moves() {
 
     return (
         <>
-            <h1 className="text-light ms-5">{lang}</h1>
             <div className="row mx-auto container pt-3">
                 {Moves.map((move) => {
                     return (

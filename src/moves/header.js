@@ -10,15 +10,9 @@ export default function Header() {
 
     //to change counter value
     // const counter = useSelector((state)=> state.counter.counterValue)
-    const {lang , setLange} = useContext(LanguageContext)
+    const {lang , setLang} = useContext(LanguageContext)
     const changeLang = (e) => {
-        // console.log(typeof(lang))
-        console.log(lang)
-        // console.log(typeof(e.target.value))
-        console.log(e.target.value)
-        setLange(e.target.value)
-        console.log(lang)
-
+        setLang(e.target.value)
     }
 
 
@@ -48,12 +42,12 @@ export default function Header() {
                         
                         {/* <Link to="/MovesDetail">MovesDetail</Link> */}
                         <form className="d-flex" role="search">
-                            <label className="text-light">movie Language</label>
+                            {/* <label className="text-light">movie Language</label> */}
                             <select className="bg-dark text-light border border-0 me-3 p-2 fw-bold " 
                             value={lang} onChange={changeLang} >
-                                <option value="en" >en</option>
-                                <option value="fi">fi</option>
-                                <option value="de">de</option>
+                                <option value="en" >English</option>
+                                <option value="fi">French</option>
+                                <option value="de">Deutsche</option>
                             </select>
                         <input className="form-control me-2 bg-dark text-light border border-success" type="search" placeholder="Search" aria-label="Search" />
                             {/* <button className="btn btn-outline-success mx-3" type="submit">Search</button> */}
