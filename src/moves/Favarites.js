@@ -7,7 +7,7 @@ export default function Favarites() {
 
     const favMovie = useSelector((state) => state.favMovie)
     const allFavMovie = favMovie.map((singlemovie) => singlemovie.move)
-    console.log(allFavMovie)
+    // console.log(allFavMovie)
 
     //to read the single move in anther page
     const navigate = useNavigate();
@@ -21,6 +21,7 @@ export default function Favarites() {
 
     const dispatch = useDispatch()
     const removeToFavarites = ((move) => {
+        // console.log(move)
         dispatch(remove({ move }))
     })
 

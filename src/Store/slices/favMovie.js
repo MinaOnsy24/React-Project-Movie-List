@@ -15,9 +15,9 @@ const Favarites = createSlice({
             state.push(action.payload)
         },
         remove :(state , action) => {//function
-
-            const index = state.findIndex((movies) => movies.id === action.payload.id);
-            state.splice(index, 1);
+            // state.forEach((e)=>console.log(e))
+            const index = state.filter((movies) => movies.id !== action.payload.id);
+            state = index;
         }
     }
 

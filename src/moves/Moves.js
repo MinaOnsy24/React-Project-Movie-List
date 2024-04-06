@@ -42,12 +42,12 @@ export default function Moves() {
     const dispatch = useDispatch()
 
     const favMovie = useSelector((state) => state.favMovie)
-    console.log(favMovie)
+    // console.log(favMovie)
 
     const addToFavarites = ((move) => {
 
         const isFav = favMovie.find((famov) => famov.id === move.id)
-        console.log(isFav)
+        // console.log(isFav)
         if (!isFav) {
             dispatch(add({ move }))
         }

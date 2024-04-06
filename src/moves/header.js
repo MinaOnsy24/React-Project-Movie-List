@@ -12,9 +12,9 @@ export default function Header() {
     // const counter = useSelector((state)=> state.counter.counterValue)
     const {lang , setLange} = useContext(LanguageContext)
     const changeLang = (e) => {
-        console.log(typeof(lang))
+        // console.log(typeof(lang))
         console.log(lang)
-        console.log(typeof(e.target.value))
+        // console.log(typeof(e.target.value))
         console.log(e.target.value)
         setLange(e.target.value)
         console.log(lang)
